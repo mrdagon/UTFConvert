@@ -6,12 +6,14 @@
 #include <locale>
 #include <codecvt>
 #include <iomanip>
+#include <Windows.h>
 
 #pragma execution_character_set("utf-8")
 
 int main(int argc, char *argv[])
 {
-    std::setlocale(LC_ALL, "Japanese");
+	//Windows専用
+	CreateDirectoryA("backup",NULL);
 
     for (int i = 1; i >= 0 ; ++i)
     {
@@ -25,10 +27,11 @@ int main(int argc, char *argv[])
         std::basic_ifstream<char32_t> ifs;
         ifs.imbue(std::locale(std::locale(""), new std::codecvt_utf8<char32_t>));
 
-        std::string outFile = argv[i];
-        outFile += ".pre";
+		std::string outFile = argv[i];
+		int num = outFile.find_last_of('\\');
+		outFile.insert(num, "\\backup");
 
-        ofs.open( "buff" , std::ios::out);
+		ofs.open( "buff" , std::ios::out);
         ifs.open( argv[i] , std::ios::in);
 
         char32_t wc;
@@ -89,9 +92,10 @@ int main(int argc, char *argv[])
         ofs.close();
         ifs.close();
 
-        //WindowsAPI
+        //環境依存？
+		//元ファイルをbackupフォルダに移動
         rename( fileName.c_str() , outFile.c_str() );
-        rename( "buff", fileName.c_str());
+		rename("buff", fileName.c_str());
     }
 
     return 0;
