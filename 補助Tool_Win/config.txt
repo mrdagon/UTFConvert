@@ -1,0 +1,5 @@
+bmp_font_list.txt
+ipag.ttf
+10
+16
+24

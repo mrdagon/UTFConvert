@@ -1,0 +1,6 @@
+tmxfile,template.tmx
+class,ClassTemplate.h
+scene,SceneTemplate.h
+enum,EnumTemplate.h
+prefix,UI_
+namespace,SDX
