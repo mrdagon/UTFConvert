@@ -178,6 +178,7 @@ idはIDプロパティの値でEnumのObjectIDに対応する。
 
 ■ソースのライセンス■
 conv_tmx.cpp
+及びSDXFrameworkのGetTag.h、TmxToCode.hを修正すれば改造出来ると思います。
 
 Copyright © 2014 SDXFramework
 【License】GNU Affero General Public License, version 3
@@ -186,7 +187,7 @@ Copyright © 2014 SDXFramework
 コードのコンパイルにはSDXFramework ver0.13が必要です。
 
 ■トラブルシューティング■
-１.Imageクラスが変
+１.タイルクラスにされる/されない
 　あるクラスのオブジェクトに"gid"パラメータを持つオブジェクトが一つでもあればそのクラスはタイルクラス扱いになります。
 
 　TEMPLATEにタイル用にクラスを定義したけど、一つもオブジェクトが無いような場合や、矩形用のオブジェクトのカスタムプロパティに"gid"を設定した場合はエラーになったりコンパイル不能なコードになる事があります。TEMPLATEレイヤー上の不要なオブジェクトは削除して下さい。
@@ -205,3 +206,6 @@ Copyright © 2014 SDXFramework
 
 ６.想定してない事
 　例えば円や直線オブジェクトを追加する等するとバグる可能性が高いです。
+
+７.矩形の型が分かりにくい
+　Tiledの編集>設定>オブジェクト・タイプで、種類毎に表示色を設定出来ます。

@@ -1,6 +1,6 @@
 tmxfile,template.tmx
-class,ClassTemplate.h
-scene,SceneTemplate.h
-enum,EnumTemplate.h
+class,tiled/ClassTemplate.h
+scene,tiled/SceneTemplate.h
+enum,tiled/EnumTemplate.h
 prefix,UI_
 namespace,SDX
